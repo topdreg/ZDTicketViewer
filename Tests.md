@@ -32,3 +32,6 @@ ticket to the agent.
 
 Also tested the program on several input commands aside '1' or '2' to see if the program would exit.
 The program does indeed exit on 'z', 'p', '3', 'abc', and several other input commands. 
+
+Regarding the credential system: 
+Tested the system with my domain name, username, and password. Also tested it with gibberish. Credential system seems to work. 
