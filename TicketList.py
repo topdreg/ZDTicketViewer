@@ -7,14 +7,14 @@ import requests
 
 def getTickets(domainName, user, pwd): 
     # Set request parameters
-    url = 'https://' + domainName + '/api/v2/requests.json'
+    url = 'https://' + domainName + '.zendesk.com/api/v2/requests.json'
 
     # Do the HTTP get request 
     response = requests.get(url, auth=(user, pwd)) 
 
     # Check for HTTP codes other than 200 
     if response.status_code != 200: 
-        print('Status:', response.status_code, 'Problem with the request. Perhaps the Zendesk API is unavailable. Exiting.') 
+        print('Status:', response.status_code, '\nProblem with the request. The Zendesk API could not be accessed through the given information. Exiting.\n') 
         exit() 
 
     # Decode the JSON response into a dictionary and use the data
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     print('First, we need to import some ticket data. Please follow the prompts.\n')
 
     # Import ticket data. 
-    domainName = input('Please enter your domain name, i.e. fred.zendesk.com: ') 
+    domainName = input('Please enter your domain name (without .zendesk.com), i.e. fred in fred.zendesk.com: ') 
     user = input('Now enter your username, typically an email address: ') 
     pwd = input('Finally, enter your password please: ') 
     dataDict = getTickets(domainName, user, pwd) 
