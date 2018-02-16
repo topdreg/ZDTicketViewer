@@ -1,5 +1,4 @@
 import requests
-import json
 
 
 # -----------------------------------------------
@@ -17,7 +16,8 @@ response = requests.get(url, auth=(user, pwd))
 
 # Check for HTTP codes other than 200 
 if response.status_code != 200: 
-    print('Status:', response.status_code, 'Problem with the request. Perhaps the Zendesk API is unavailable. Exiting.') 
+    print('Status:', response.status_code, 'Problem with the request. 
+            Perhaps the Zendesk API is unavailable. Exiting.') 
     exit() 
 
 # Decode the JSON response into a dictionary and use the data
@@ -52,7 +52,8 @@ def printTicketList(dataDict):
     counter = 0
     for key in dataDict: 
         if counter % 25 == 0 and counter != 0: 
-            print('Enter 1 to continue to next 25 tickets. Enter any other key to exit to the main menu.\n')
+            print('Enter 1 to continue to next 25 tickets. 
+                    Enter any other key to exit to the main menu.\n')
             inputNum = input('Now enter a key: ')
             if inputNum != '1': 
                 break 
@@ -93,7 +94,8 @@ if __name__ == '__main__':
             if int(ID) in dataDict.keys(): 
                 printTicket(dataDict, int(ID)) 
             else:
-                print('\nThat is not a valid ID. Please retry at the main menu and enter a valid ID next time.')  
+                print('\nThat is not a valid ID. Please retry 
+                        at the main menu and enter a valid ID next time.')  
                 print('\n--------------------------------------\n')  
 
 
