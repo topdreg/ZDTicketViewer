@@ -71,27 +71,29 @@ def printTicketList(dataDict):
 
 print('\n####-------------------TICKET VIEWER-------------------####\n') 
 
-inputNum = '1'
 
-while inputNum == '1' or inputNum == '2': 
-    
-    print('Enter 1 to show the list of tickets.\n') 
-    print('Enter 2 followed by an ID to generate an individual ticket\n') 
-    print('Enter any other value to exit the program.') 
+if __name__ == '__main__': 
+    inputNum = '1'
 
-    print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n') 
+    while inputNum == '1' or inputNum == '2': 
+        
+        print('Enter 1 to show the list of tickets.\n') 
+        print('Enter 2 followed by an ID to generate an individual ticket\n') 
+        print('Enter any other value to exit the program.') 
 
-    inputNum = input('Enter a command: ') 
+        print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n') 
 
-    if inputNum == '1':  
-        print('\n--------------------------------------\n')  
-        printTicketList(dataDict) 
-    elif inputNum == '2':
-        ID = input('\nNow enter an ID: ') 
-        if int(ID) in dataDict.keys(): 
-            printTicket(dataDict, int(ID)) 
-        else:
-            print('\nThat is not a valid ID. Please retry at the main menu and enter a valid ID next time.')  
+        inputNum = input('Enter a command: ') 
+
+        if inputNum == '1':  
             print('\n--------------------------------------\n')  
+            printTicketList(dataDict) 
+        elif inputNum == '2':
+            ID = input('\nNow enter an ID: ') 
+            if int(ID) in dataDict.keys(): 
+                printTicket(dataDict, int(ID)) 
+            else:
+                print('\nThat is not a valid ID. Please retry at the main menu and enter a valid ID next time.')  
+                print('\n--------------------------------------\n')  
 
 
