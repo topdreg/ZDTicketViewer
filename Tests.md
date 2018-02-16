@@ -1,3 +1,7 @@
+I do not know what qualifies as good happy path tests, but here's my attempt.
+
+----------------------------------------------------------------------------------
+
 Happy path tests:
 
 Tested the program on input '1' for several individual ticket requests between the values of 
