@@ -2,32 +2,31 @@ import requests
 
 
 # -----------------------------------------------
-# Import and prepare JSON data.
+# Method to import and prepare JSON data.
 # -----------------------------------------------
 
+def getTickets(domainName, user, pwd): 
+    # Set request parameters
+    url = 'https://' + domainName + '/api/v2/requests.json'
 
-# Set request parameters
-url = 'https://topdreg.zendesk.com/api/v2/requests.json' 
-user = 'apercival314@gmail.com' 
-pwd = 'Gamemaster1!' 
+    # Do the HTTP get request 
+    response = requests.get(url, auth=(user, pwd)) 
 
-# Do the HTTP get request 
-response = requests.get(url, auth=(user, pwd)) 
+    # Check for HTTP codes other than 200 
+    if response.status_code != 200: 
+        print('Status:', response.status_code, 'Problem with the request. Perhaps the Zendesk API is unavailable. Exiting.') 
+        exit() 
 
-# Check for HTTP codes other than 200 
-if response.status_code != 200: 
-    print('Status:', response.status_code, 'Problem with the request. Perhaps the Zendesk API is unavailable. Exiting.') 
-    exit() 
+    # Decode the JSON response into a dictionary and use the data
+    data = response.json() 
+    data = data['requests']
 
-# Decode the JSON response into a dictionary and use the data
-data = response.json() 
-data = data['requests']
-
-# Create dictionary based on id's. 
-dataDict = {}
-for item in data:
-    dataDict[item['id']] = item
-
+    # Create dictionary based on id's. 
+    dataDict = {}
+    for item in data:
+        dataDict[item['id']] = item
+    
+    return dataDict
 
 
 # -----------------------------------------------
@@ -68,10 +67,20 @@ def printTicketList(dataDict):
 # Run UI and wait for user input. 
 # -----------------------------------------------
 
-print('\n####-------------------TICKET VIEWER-------------------####\n') 
-
-
 if __name__ == '__main__': 
+
+    print('\n####-------------------TICKET VIEWER-------------------####\n') 
+    
+    print('First, we need to import some ticket data. Please follow the prompts.\n')
+
+    # Import ticket data. 
+    domainName = input('Please enter your domain name, i.e. fred.zendesk.com: ') 
+    user = input('Now enter your username, typically an email address: ') 
+    pwd = input('Finally, enter your password please: ') 
+    dataDict = getTickets(domainName, user, pwd) 
+    
+    print('\nThank you! Now onto the ticket viewer. =)\n') 
+
     inputNum = '1'
 
     while inputNum == '1' or inputNum == '2': 
