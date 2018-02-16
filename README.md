@@ -16,7 +16,6 @@ or the individual ticket viewer) or if at the main menu, will cause the program 
 
 -----------------------------------------------------------
 
-I wanted to note that I have not used Python much, and recently learned JSON for this challenge. Hence, I believe my 
-implementation is a bit hackish. If accepted into the Zendesk internship, I promise that I will work hard to be
+I wanted to note that I have not used Python much, and recently learned about the requests library and JSON for this challenge. Hence, I believe my implementation is a bit hackish. If accepted into the Zendesk internship, I promise that I will work hard to be
 competent in whatever technologies the company uses by the time the internship starts. Thank you very much 
 for reviewing my challenge submission! 
