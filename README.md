@@ -3,7 +3,7 @@ Python ver. 3 should be installed -- I do not know if a lesser version will work
 The Requests library must also be installed. Type pipenv install requests in your command line.
 If pipenv is not installed, type pip install pipenv in the command line. 
 
-The program's UI works through the command line. Upon starting, the program will ask for input at the command line. 
+The program's UI works through the command line. Upon starting, the program will ask for the user's credentials to import ticket data. If successful, the program will then ask input at the command line. 
 
 Typing the number 1 and pressing enter will bring up a paginated list of tickets. The ticket list will only show the
 the id number, status, priority, and subject of each ticket. 
