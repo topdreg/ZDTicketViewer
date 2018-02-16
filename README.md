@@ -1,5 +1,7 @@
 To run the program, type python3 TicketList.py in your command line. 
-Python ver. 3 should be installed -- I do not know if a lesser version will work.  
+Python ver. 3 should be installed -- I do not know if a lesser version will work.
+The Requests library must also be installed. Type pipenv install requests in your command line.
+If pipenv is not installed, type pip install pipenv in the command line. 
 
 The program's UI works through the command line. Upon starting, the program will ask for input at the command line. 
 
